@@ -5,6 +5,7 @@
 
 ### Running a Spider
 - `scrapy crawl spider_name`: Start crawling with the specified spider. Replace `spider_name` with the actual name of your spider.
+- `scrapy crawl spider_name -O bookdata.json`: save result to a file .csv or .json
 
 ### Basic Scrapy Commands
 - `scrapy startproject project_name`: Create a new Scrapy project with the specified project name.
@@ -12,6 +13,7 @@
 - `scrapy shell url`: Open an interactive shell for testing and debugging.
 - `scrapy check project_name`: Check your Scrapy project for potential issues and suggestions.
 - `scrapy version`: Display the installed Scrapy version.
+
 
 Make sure to replace `project_name`, `spider_name`, and `domain.com` with your actual project and spider names, and the target domain you want to scrape. 
 
@@ -45,6 +47,7 @@ Use getall() to extract data from all matching elements based on your CSS select
 ```
 p_texts = response.css('p::text').getall()
 ```
+
 
 
 
