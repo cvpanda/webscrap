@@ -7,7 +7,23 @@ Scraping demo book website
 
 ### Running a Spider
 - `scrapy crawl spider_name`: Start crawling with the specified spider. Replace `spider_name` with the actual name of your spider.
-- `scrapy crawl spider_name -O bookdata.json`: save result to a file .csv or .json
+- `scrapy crawl spider_name -O bookdata.json`: save result to a file .csv or .json 
+` -O new file -o appends to existing name file `
+
+If a feeds is indicated in settings you can run without assigning the name file:
+`scrapy crawl spider_name`: will generate bookdata.json
+```FEEDS = {
+   'booksdata.json': {'format': 'json'}
+}```
+
+Creating a custom_settings with the feed inside your spider will overwrite any feed or setting in settings.py
+```
+    custom_settings = {
+        FEEDS: {
+            'booksdata.json': {'format': 'json', 'overwrite': True}
+        }
+    }
+```
 
 ### Basic Scrapy Commands
 - `scrapy startproject project_name`: Create a new Scrapy project with the specified project name.

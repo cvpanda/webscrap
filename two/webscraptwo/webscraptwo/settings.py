@@ -12,7 +12,9 @@ BOT_NAME = "webscraptwo"
 SPIDER_MODULES = ["webscraptwo.spiders"]
 NEWSPIDER_MODULE = "webscraptwo.spiders"
 
-
+FEEDS = {
+   'booksdata.json': {'format': 'json'}
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "webscraptwo (+http://www.yourdomain.com)"
 
@@ -62,8 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
+ITEM_PIPELINES = {   
    "webscraptwo.pipelines.WebscraptwoPipeline": 300,
+   "webscraptwo.pipelines.SaveToMySQLPipeline": 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
